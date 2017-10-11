@@ -1,0 +1,54 @@
+// main: ../style.scss
+[role="button"] {
+  cursor: pointer;
+}
+
+.btn {
+  @include position;
+  display: inline-block;
+  background: $theme-orange;
+  color: $white;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 11px 35px 10px;
+
+  &:after {
+    content: '';
+    @include position(-1px null null null);
+    display: inline-block;
+    vertical-align: middle;
+    border-width: 4px 0 4px 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent $white;
+    margin-left: 10px;
+    @include transition(all 0.25s ease);
+  }
+
+  &:hover {
+    background: darken($theme-orange,5%);
+
+    &:after {
+      @include transform(translateX(5px));
+    }
+  }
+
+  &.btn--link {
+    background: transparent;
+    color: $theme-orange;
+    padding: 0;
+
+    &:after {
+      border-left-color: $theme-orange;
+    }
+  }
+
+  &.btn--block {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+}

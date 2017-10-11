@@ -1,0 +1,123 @@
+// main: ../style.scss
+*,
+*:after,
+*:before {
+  @include box-sizing(border-box);
+}
+
+.page-wrapper {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  @media (max-width: 989px) {
+    width: auto;
+    max-width: none;
+    margin: 0 15px;
+  }
+}
+
+.header {
+  @include position;
+  background: $white;
+  padding: 25px 15px;
+  @include border-bottom-radius(4px);
+
+  .header__logo {
+    display: block;
+    width: 238px;
+    height: 30px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 479px) {
+    padding: 20px 15px;
+
+    .header__logo {
+      width: 190px;
+      height: 24px;
+
+      .header__logo__img {
+        width: 190px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+.page-heading {
+  @include position;
+  text-align: center;
+  padding: 40px 15px;
+
+  .page-title {
+    &:after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: $gray80;
+      margin: 15px auto;
+    }
+  }
+
+  .page-instructions {
+    font-size: 23px;
+  }
+
+  @media (max-width: 989px) {
+    .page-instructions {
+      font-size: 19px;
+    }
+  }
+
+  @media (max-width: 479px) {
+    padding: 25px 15px;
+  }
+}
+
+.post-listing {
+  @include position;
+  background: $white;
+  padding: 25px;
+  @include border-radius(4px);
+}
+
+.post {
+  border-bottom: 1px solid $gray90;
+  padding-bottom: 30px;
+  margin-bottom: 25px;
+
+  &:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .post__title {
+    font-size: 24px;
+
+    a {
+      &:hover {
+        color: $theme-orange;
+      }
+    }
+  }
+
+  .post__metadata {
+    color: $gray70;
+    margin-top: 5px;
+  }
+
+  .post__content {
+    color: $black;
+    font-size: 19px;
+    padding: 20px 0 30px;
+  }
+}
+
+.footer {
+  color: $gray70;
+  text-align: center;
+  padding: 25px 15px;
+}

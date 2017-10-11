@@ -1,0 +1,9 @@
+// main: ../style.scss
+body {
+  background: $gray92;
+  color: $gray60;
+  font: 300 17px/1.4 'Malleable Grotesque', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+@include selection($theme-orange);

@@ -1,0 +1,50 @@
+// main: ../style.scss
+@keyframes preloader {
+  from {
+    @include transform(rotate(0deg));
+  }
+
+  to {
+    @include transform(rotate(360deg));
+  }
+}
+
+.preloader {
+  @include full-screen(absolute);
+  background: rgba($white,0.85);
+  @include opacity(0);
+  visibility: hidden;
+  @include transition(all 0.5s ease);
+
+  .preloader__logo {
+    @include position(absolute,50% null null 50%);
+    width: 60px;
+    height: 40px;
+    background: $black;
+    margin-top: -20px;
+    margin-left: -30px;
+    @include border-right-radius(20px);
+
+    &:before {
+      content: '';
+      @include position(absolute, 2px 20px null null);
+      width: 18px;
+      height: 36px;
+      background: $white;
+      @include border-left-radius(18px);
+    }
+  }
+
+  &.preloader--visible {
+    @include opacity(1);
+    visibility: visible;
+
+    .preloader__logo {
+      &:before {
+        @include animation(preloader 1s ease infinite);
+        @include animation-delay(0.25s)
+        @include transform-origin(100%);
+      }
+    }
+  }
+}
